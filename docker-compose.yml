@@ -1,0 +1,36 @@
+---
+version: "3.8"
+
+services:
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+    networks:
+      - my-network
+
+  backend:
+    build: ./backend
+    depends_on:
+      - mongo
+    ports:
+      - "3001:3001"
+    networks: 
+      - my-network
+  
+  mongo:
+    image: mongo
+    restart: always
+    volumes: 
+      - ./data/db:/data/db
+    environment: 
+      MONGODB_INITDB_ROOT_USERNAME: username
+      MONGODB_INITDB_ROOT_PASSWORD: password
+    networks: 
+      - my-network
+
+networks:
+  my-network:
