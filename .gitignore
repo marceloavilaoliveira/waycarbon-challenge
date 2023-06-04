@@ -6,5 +6,12 @@ npm-debug.log
 *.sublime-project
 *.sublime-workspace
 .vs
+
+# Data directory
 data/*
 !data/README.md
+
+# Terraform files
+.terraform
+*.tfstate*
+*.lock.hcl
