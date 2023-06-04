@@ -12,9 +12,10 @@ In summary, the challenge is to provision a cloud environment for a web applicat
 
 ```
 .
-|-- backend/           => The backend component of the web app
-|-- frontend/          => The frontend component of the web app
-|-- data/              => The Mongo DB data (ignored by Git)
+|-- backend/           => Backend component of the web app
+|-- frontend/          => Frontend component of the web app
+|-- nginx/             => Nginx configuration
+|-- data/              => Mongo DB data (ignored by Git)
 |-- doc/               => The documentation
 |-- docker-compose.yml => The Docker compose file
 |-- .dockerignore      => Docker ignored files/directories
