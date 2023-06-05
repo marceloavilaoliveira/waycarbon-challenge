@@ -14,9 +14,12 @@ This project is based on [knaopel/docker-frontend-backend-db](https://github.com
 
 The project structure is shown following: 
 
-![Project Structure](doc/project-structure.png).
+![Project Structure](doc/project-structure.png)
 
-The final result of the project can be seen running at http://waycarbon-challenge.duckdns.org/.
+The final result of the project can be seen running at:
+
+- Frontend: http://waycarbon-challenge.duckdns.org/
+- Backend: http://waycarbon-challenge.duckdns.org/api
 
 ## The Repository ##
 
@@ -34,17 +37,33 @@ These are the repository contents:
 |-- frontend/          => Frontend component of the web app
 |-- nginx/             => Nginx configuration
 |-- data/              => Mongo DB data (ignored by Git)
-|-- doc/               => The documentation
+|-- bash/              => Bash scripts
 |-- terraform/         => Terraform infrastructure definition
-|-- docker-compose.yml => The Docker compose file
+|-- doc/               => Documentation
+|-- docker-compose.yml => Docker compose file
+|-- .env               => Environment definition file
 |-- .dockerignore      => Docker ignored files/directories
 |-- .gitignore         => Git ignored files/directories
 `-- README.md          => This file
 ```
 
-## Infrastructure Provisioning ##
+## Building the Docker images ##
 
-To provision the infrastructure, install the [Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) and the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html), and execute the following:
+To build the Docker images for both the frontend and the backend, install the [Docker](https://docs.docker.com/engine/install/), and execute the following:
+
+```bash
+$ bash/build.sh
+```
+
+If you need to build just a specific component, you can specify it using the -c flag:
+
+```bash
+$ bash/build.sh -c frontend|backend
+```
+
+## Provisioning the Infrastructure ##
+
+To provision the infrastructure in AWS, install the [Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) and the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html), and execute the following:
 
 ```bash
 $ cd terraform
