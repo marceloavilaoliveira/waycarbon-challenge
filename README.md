@@ -12,7 +12,9 @@ In summary, the challenge is to provision a cloud environment for a web applicat
 
 This project is based on [knaopel/docker-frontend-backend-db](https://github.com/knaopel/docker-frontend-backend-db) repository, and consists of 4 services deployed in Docker containers. There is a web app (frontend) that communicates with an API (backend), which in turn reads/writes data to a database (mongo). These services are accessed through a web server (nginx).
 
-The project structure can be better visualized [here](doc/project-structure.jpg).
+The project structure is shown following: 
+
+![Project Structure](doc/project-structure.png).
 
 The final result of the project can be seen running at http://waycarbon-challenge.duckdns.org/.
 
