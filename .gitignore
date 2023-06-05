@@ -1,3 +1,4 @@
+# Frontend/Backend files/directories
 .DS_Store
 .idea/
 *.iml
@@ -6,6 +7,9 @@ npm-debug.log
 *.sublime-project
 *.sublime-workspace
 .vs
+
+# Environment definition
+.env
 
 # Data directory
 data/*
