@@ -47,9 +47,17 @@ These are the repository contents:
 `-- README.md          => This file
 ```
 
+## Installing the automation tools ##
+
+To use all the commands and scripts listed here, you need to have installed the following tools:
+
+- [Docker](https://docs.docker.com/engine/install/)
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- [Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+
 ## Building the Docker images ##
 
-To build the Docker images for both the frontend and the backend, install the [Docker](https://docs.docker.com/engine/install/), and execute the following:
+To build the Docker images for both the frontend and the backend execute the following:
 
 ```bash
 $ bash/build.sh
@@ -61,9 +69,23 @@ If you need to build just a specific component, you can specify it using the -c 
 $ bash/build.sh -c frontend|backend
 ```
 
+## Pushing the Docker images to ECR ##
+
+To push the Docker images for both the frontend and the backend execute the following:
+
+```bash
+$ bash/push.sh
+```
+
+If you need to push just a specific component, you can specify it using the -c flag:
+
+```bash
+$ bash/build.sh -c frontend|backend
+```
+
 ## Provisioning the Infrastructure ##
 
-To provision the infrastructure in AWS, install the [Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) and the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html), and execute the following:
+To provision the infrastructure in AWS execute the following:
 
 ```bash
 $ cd terraform
