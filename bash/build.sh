@@ -93,10 +93,17 @@ fi
 for comp in $(echo $component_aux | tr '|' '\n')
 do
     echo ""
-    echo "=> Building the $comp component image"
+    echo "#"
+    echo "# Component: $comp"
+    echo "#"
+
+    image=waycarbon-challenge-$comp
+
+    echo ""
+    echo "=> Building the $image image"
     echo ""
 
-    docker build -t waycarbon-challenge-$comp:latest ./$comp
+    docker build -t $image:latest ./$comp
 done
 
 title "END $script_name"
