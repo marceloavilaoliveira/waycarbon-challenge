@@ -4,7 +4,7 @@ version: "3.8"
 services:
 
   frontend:
-    build: ./frontend
+    image: $ECR_REGISTRY.dkr.ecr.$AWS_REGION.amazonaws.com/waycarbon-challenge-frontend:latest
     depends_on:
       - backend
     ports:
@@ -13,7 +13,7 @@ services:
       - my-network
 
   backend:
-    build: ./backend
+    image: $ECR_REGISTRY.dkr.ecr.$AWS_REGION.amazonaws.com/waycarbon-challenge-backend:latest
     depends_on:
       - mongo
     ports:
@@ -22,7 +22,7 @@ services:
       - my-network
   
   mongo:
-    image: mongo
+    image: mongo:latest
     restart: always
     volumes: 
       - ./data/db:/data/db
@@ -33,7 +33,7 @@ services:
       - my-network
 
   nginx:
-    image: nginx
+    image: nginx:latest
     restart: always
     volumes: 
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
