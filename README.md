@@ -3,10 +3,10 @@
 - [Introduction](#introduction)
 - [The Challenge](#the-challenge)
 - [The Project](#the-project)
-- [The Challenge](#the-challenge)
-- [The Repository](#the-repository)
 - [Operating Instructions](#operating-instructions)
   - [Installing the Tools](#installing-the-tools)
+  - [Getting the Repository](#getting-the-repository)
+  - [Configuring the Repository](#configuring-the-repository)
   - [Building the Images](#building-the-images)
   - [Pushing the Images to Repository](#pushing-the-Images-to-Repository)
   - [Provisioning the Infrastructure](#provisioning-the-infrastructure)
@@ -48,7 +48,7 @@ To use all the commands and scripts listed here, you need to install and configu
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 - [Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
-## Getting the Repository ##
+### Getting the Repository ###
 
 To clone the repository, execute the following:
 
@@ -75,7 +75,7 @@ These are the repository contents:
 `-- README.md          => This file
 ```
 
-## Configuring the Repository ##
+### Configuring the Repository ###
 
 The frontend and backend Docker images are pushed to the `waycarbon-challenge-frontend` and `waycarbon-challenge-backend` repositories on Docker Hub. You need to put the Docker Hub info in the `.env` file at the root of the repository:
 
@@ -134,7 +134,8 @@ TBD
 
 ## Contact Information ##
 
-- Author: Marcelo Ávila de Oliveira
+Author: **Marcelo Ávila de Oliveira**
+
 - E-mail: [marceloavilaoliveira@gmail.com](marceloavilaoliveira@gmail.com)
 - GitHub: [https://github.com/marceloavilaoliveira](https://github.com/marceloavilaoliveira)
 - StackOverflow: [https://stackoverflow.com/users/4653675](https://stackoverflow.com/users/4653675)
