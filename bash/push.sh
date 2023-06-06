@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-# Description : Push the docker images to ECR
+# Description : Push the docker images to Docker Hub
 #               - Create the repositories if needed
 #               - Tag the images
 #               - Push the images
@@ -28,7 +28,7 @@ source $proj_path/bash/utils.sh
 #-------------------------------------------------------------------------------
 
 # ENVIRONMENT
-require_vars ECR_REGISTRY AWS_REGION
+require_vars DOCKER_HUB_USER DOCKER_HUB_PASS
 
 # PARAMETERS
 verbose=
@@ -42,7 +42,7 @@ usage() {
     cat <<EOF
 
 Description:
-  Push the docker images to ECR
+  Push the docker images to Docker Hub
   - Create the repositories if needed
   - Tag the images
   - Push the images
@@ -109,8 +109,7 @@ do
 
     image=waycarbon-challenge-$comp
 
-    # CHECK IF THE REPOSITORY EXISTS
-    if aws ecr describe-repositories --repository-names "$image" --region "$AWS_REGION" >/dev/null 2>&1
+    if [[ $(curl --silent --output /dev/null --write-out "%{http_code}" --request GET https://hub.docker.com/v2/repositories/$DOCKER_HUB_USER/$image) = 200 ]]
     then
         note "Using the existent $image repository"
     else
@@ -119,20 +118,20 @@ do
         echo "=> Creating the $image repository"
         echo ""
 
-        aws ecr create-repository --repository-name $image --region $AWS_REGION
+        curl --silent --user "$DOCKER_HUB_USER:$DOCKER_HUB_PASS" --data '{}' --header "Content-Type: application/json" --request POST "https://hub.docker.com/v2/repositories/$DOCKER_HUB_USER/$image"
     fi
 
     echo ""
     echo "=> Tagging the $image image"
     echo ""
 
-    docker tag $image:latest $ECR_REGISTRY.dkr.ecr.$AWS_REGION.amazonaws.com/$image
+    docker tag $image:latest $DOCKER_HUB_USER/$image:latest
 
     echo ""
     echo "=> Pushing the $image image"
     echo ""
 
-    docker push $ECR_REGISTRY.dkr.ecr.$AWS_REGION.amazonaws.com/$image:latest
+    docker push $DOCKER_HUB_USER/$image:latest
 done
 
 title "END $script_name"

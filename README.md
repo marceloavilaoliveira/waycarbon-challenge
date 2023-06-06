@@ -1,6 +1,22 @@
 # WayCarbon Challenge - DevOps #
 
-This repository contains a solution for a DevOps challenge proposed by the [WayCarbon](https://waycarbon.com/) company.
+- [Introduction](#introduction)
+- [The Challenge](#the-challenge)
+- [The Project](#the-project)
+- [The Challenge](#the-challenge)
+- [The Repository](#the-repository)
+- [Operating Instructions](#operating-instructions)
+  - [Installing the Tools](#installing-the-tools)
+  - [Building the Images](#building-the-images)
+  - [Pushing the Images to Repository](#pushing-the-Images-to-Repository)
+  - [Provisioning the Infrastructure](#provisioning-the-infrastructure)
+- [Known issues](#known-issues)
+- [Special Notes](#special-notes)
+- [Contact Information](#contact-information)
+
+## Introduction ##
+
+This repository contains a solution for a DevOps challenge proposed in 01/06/23 by the [WayCarbon](https://waycarbon.com/) company.
 
 ## The Challenge ##
 
@@ -48,7 +64,9 @@ These are the repository contents:
 `-- README.md          => This file
 ```
 
-## Installing the automation tools ##
+## Operating Instructions ##
+
+### Installing the Tools ###
 
 To use all the commands and scripts listed here, you need to have installed the following tools:
 
@@ -56,7 +74,7 @@ To use all the commands and scripts listed here, you need to have installed the 
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 - [Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
-## Building the Docker images ##
+### Building the Images ###
 
 To build the Docker images for both the frontend and the backend execute the following:
 
@@ -70,9 +88,9 @@ If you need to build just a specific component, you can specify it using the -c 
 $ bash/build.sh -c frontend|backend
 ```
 
-## Pushing the Docker images to ECR ##
+### Pushing the Images to Repository ###
 
-To push the Docker images for both the frontend and the backend execute the following:
+To push the Docker images to Docker Hub repository for both the frontend and the backend execute the following:
 
 ```bash
 $ bash/push.sh
@@ -84,7 +102,7 @@ If you need to push just a specific component, you can specify it using the -c f
 $ bash/build.sh -c frontend|backend
 ```
 
-## Provisioning the Infrastructure ##
+### Provisioning the Infrastructure ###
 
 To provision the infrastructure in AWS execute the following:
 
@@ -93,8 +111,17 @@ $ cd terraform
 $ terraform init
 $ terraform apply
 ```
+## Known issues ##
 
-## Author ##
+TBD
 
-**Marcelo Ávila de Oliveira**
-[marceloavilaoliveira@gmail.com](marceloavilaoliveira@gmail.com)
+## Special Notes ##
+
+TBD
+
+## Contact Information ##
+
+- Author: Marcelo Ávila de Oliveira
+- E-mail: [marceloavilaoliveira@gmail.com](marceloavilaoliveira@gmail.com)
+- GitHub: [https://github.com/marceloavilaoliveira](https://github.com/marceloavilaoliveira)
+- StackOverflow: [https://stackoverflow.com/users/4653675](https://stackoverflow.com/users/4653675)
