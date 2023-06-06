@@ -18,8 +18,8 @@ The project structure is shown following:
 
 The final result of the project can be seen running at:
 
-- Frontend: http://waycarbon-challenge.duckdns.org/
-- Backend: http://waycarbon-challenge.duckdns.org/api
+- Frontend: http://waycarbon-challenge.freeddns.org/
+- Backend: http://waycarbon-challenge.freeddns.org/api
 
 ## The Repository ##
 
@@ -38,6 +38,7 @@ These are the repository contents:
 |-- nginx/             => Nginx configuration
 |-- data/              => Mongo DB data (ignored by Git)
 |-- bash/              => Bash scripts
+|-- ansible/           => Ansible playbooks
 |-- terraform/         => Terraform infrastructure definition
 |-- doc/               => Documentation
 |-- docker-compose.yml => Docker compose file
