@@ -37,7 +37,18 @@ The final result of the project can be seen running at:
 - Frontend: http://waycarbon-challenge.freeddns.org/
 - Backend: http://waycarbon-challenge.freeddns.org/api
 
-## The Repository ##
+## Operating Instructions ##
+
+### Installing the Tools ###
+
+To use all the commands and scripts listed here, you need to install and configure the following tools:
+
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [Docker](https://docs.docker.com/engine/install)
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- [Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+
+## Getting the Repository ##
 
 To clone the repository, execute the following:
 
@@ -64,15 +75,17 @@ These are the repository contents:
 `-- README.md          => This file
 ```
 
-## Operating Instructions ##
+## Configuring the Repository ##
 
-### Installing the Tools ###
+The frontend and backend Docker images are pushed to the `waycarbon-challenge-frontend` and `waycarbon-challenge-backend` repositories on Docker Hub. You need to put the Docker Hub info in the `.env` file at the root of the repository:
 
-To use all the commands and scripts listed here, you need to have installed the following tools:
+```
+DOCKER_HUB_USER=<docker-hub-username>
+DOCKER_HUB_PASS=<docker-hub-password>
+```
 
-- [Docker](https://docs.docker.com/engine/install/)
-- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-- [Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+This information will be used to create the necessary repositories, push the generated images, and also pull the required images.
+
 
 ### Building the Images ###
 
