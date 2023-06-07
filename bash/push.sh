@@ -28,7 +28,7 @@ source $proj_path/bash/utils.sh
 #-------------------------------------------------------------------------------
 
 # ENVIRONMENT
-require_vars DOCKER_HUB_USER DOCKER_HUB_PASS
+require_vars DOCKER_HUB_USER
 
 # PARAMETERS
 verbose=
@@ -117,6 +117,17 @@ do
         echo ""
         echo "=> Creating the $image repository"
         echo ""
+
+        if [[ ${DOCKER_HUB_PASS:-unset} = unset ]]
+        then
+            echo    ""
+            echo    "Docker Hub password"
+            echo -n "> "
+            read -r -s DOCKER_HUB_PASS
+            echo    ""
+
+            require_option DOCKER_HUB_PASS
+        fi
 
         curl --silent --user "$DOCKER_HUB_USER:$DOCKER_HUB_PASS" --data '{}' --header "Content-Type: application/json" --request POST "https://hub.docker.com/v2/repositories/$DOCKER_HUB_USER/$image"
     fi

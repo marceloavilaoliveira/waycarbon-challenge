@@ -32,7 +32,7 @@ The project structure is shown following:
 
 ![Project Structure](doc/project-structure.png)
 
-The final result of the project can be seen running at:
+The project can be seen in all its glory at:
 
 - Frontend: http://waycarbon-challenge.freeddns.org/
 - Backend: http://waycarbon-challenge.freeddns.org/api
@@ -114,6 +114,14 @@ If you need to push just a specific component, you can specify it using the -c f
 $ bash/build.sh -c frontend|backend
 ```
 
+The images are pushed to the `$DOCKER_HUB_USER/waycarbon-challenge-frontend` and `$DOCKER_HUB_USER/waycarbon-challenge-backend` repositories on Docker Hub. If these repositories do not exist, the build script will create them. In that case, it requires the Docker Hub password. You can set the following environment variable:
+
+```bash
+$ export DOCKER_HUB_PASS=<docker-hub-password>
+```
+
+Or you can just answer to the script when it was prompt.
+
 ### Provisioning the Infrastructure ###
 
 To provision the infrastructure in AWS execute the following:
@@ -135,15 +143,15 @@ $ ansible-playbook deploy.yaml
 
 ## Known issues ##
 
-- This project assumes that the provisioned instance can be accessed at "waycarbon-challenge.freeddns.org". The [Dynu](https://www.dynu.com/) site is being used for this.
+- This project assumes that the provisioned instance can be accessed at `waycarbon-challenge.freeddns.org`. The [Dynu](https://www.dynu.com/) site is being used for this.
 
-- The Public SSH key used in the provisioned instance is defined in the file "terraform/main.tf" and should be adjusted as needed before provisioning.
+- The Public SSH key used in the provisioned instance is defined in the file `terraform/main.tf` and should be adjusted as needed before provisioning.
 
-- The application data is stored in the "data" directory. It would be more convenient for them to be stored in an independent volume, making backups easier.
+- The application data is stored in the `data` directory. It would be more convenient for them to be stored in an independent volume, making backups easier.
 
 ## Special Notes ##
 
-TBD
+*TBD*
 
 ## Contact Information ##
 
