@@ -7,8 +7,6 @@ services:
     image: $DOCKER_HUB_USER/waycarbon-challenge-frontend:latest
     depends_on:
       - backend
-    ports:
-      - "3000:3000"
     networks:
       - my-network
 
@@ -16,8 +14,6 @@ services:
     image: $DOCKER_HUB_USER/waycarbon-challenge-backend:latest
     depends_on:
       - mongo
-    ports:
-      - "3001:3001"
     networks: 
       - my-network
   
