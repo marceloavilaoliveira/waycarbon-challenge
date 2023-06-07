@@ -43,9 +43,10 @@ The project can be seen in all its glory at:
 
 To use all the commands and scripts listed here, you need to install and configure the following tools:
 
-- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- [Docker](https://docs.docker.com/engine/install)
+- [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- [Docker](https://docs.docker.com/engine/install)
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
 ### Getting the Repository ###
