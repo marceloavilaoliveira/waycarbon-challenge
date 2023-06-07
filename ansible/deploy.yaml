@@ -10,12 +10,6 @@
 
   tasks:
 
-    - name: Install Ansible
-      become: true
-      apt:
-        name:
-          - ansible
-
     - name: Install Docker
       become: true
       block:
