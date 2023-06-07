@@ -78,14 +78,20 @@ These are the repository contents:
 
 ### Configuring the Project ###
 
-The frontend and backend Docker images are pushed to the `waycarbon-challenge-frontend` and `waycarbon-challenge-backend` repositories on Docker Hub. You need to put the Docker Hub info in the `.env` file at the root of the repository:
+To configure the project, create a `.env` file at the root of the repository, defining the following variables:
 
 ```
-DOCKER_HUB_USER=<docker-hub-username>
+DOCKER_HUB_USER="<docker-hub-username>"
+PUBLIC_KEY="<ssh_public_key>"
 ```
 
-This information will be used to create the necessary repositories, push the generated images, and also pull the required images.
+#### DOCKER_HUB_USER ####
 
+This variable defines the Docker Hub username that will be used to create the image repositories and to push/pull the images to/from. The frontend and backend images are pushed/pulled to/from `$DOCKER_HUB_USER/waycarbon-challenge-frontend` and `$DOCKER_HUB_USER/waycarbon-challenge-backend` repositories on Docker Hub. The respective Docker Hub password will be asked by the `bash/push.sh` script.
+
+#### PUBLIC_KEY ####
+
+This variable defines the SSH public key that will be used to provision the AWS infrastructure. Ansible will use the respective SSH private key to access the machine.
 
 ### Building the Images ###
 
@@ -125,12 +131,10 @@ Or you can just answer to the script when it was prompt.
 
 ### Provisioning the Infrastructure ###
 
-To provision the infrastructure in AWS execute the following:
+To provision the AWS infrastructure execute the following:
 
 ```bash
-$ cd terraform
-$ terraform init
-$ terraform apply
+$ bash/provision.sh
 ```
 
 ### Deploying the Project ###
@@ -145,8 +149,6 @@ $ ansible-playbook deploy.yaml
 ## Known issues ##
 
 - This project assumes that the provisioned instance can be accessed at `waycarbon-challenge.freeddns.org`. The [Dynu](https://www.dynu.com/) site is being used for this.
-
-- The Public SSH key used in the provisioned instance is defined in the file `terraform/main.tf` and should be adjusted as needed before provisioning.
 
 - The application data is stored in the `data` directory. It would be more convenient for them to be stored in an independent volume, making backups easier.
 
