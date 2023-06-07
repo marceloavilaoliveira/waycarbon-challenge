@@ -7,7 +7,7 @@ const todos = require('./todos');
 
 
 router.get("/", (req, res) => {
-  res.send("main page!");
+  res.send("WayCarbon Challenge - Backend");
 });
 
 router.use("/todos", todos);
