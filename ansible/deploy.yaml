@@ -1,0 +1,64 @@
+---
+- name: Deploy the project
+
+  hosts: waycarbon-challenge.freeddns.org
+
+  remote_user: ubuntu
+
+  vars:
+    proj_home: "/home/ubuntu/waycarbon-challenge"
+
+  tasks:
+
+    - name: Install Ansible
+      become: true
+      apt:
+        name:
+          - ansible
+
+    - name: Install Docker
+      become: true
+      block:
+
+        - name: Add Docker GPG apt key
+          apt_key:
+            url: https://download.docker.com/linux/ubuntu/gpg
+            state: present
+
+        - name: Add Docker repository
+          apt_repository:
+            repo: >
+              deb https://download.docker.com/linux/ubuntu
+              {{ ansible_facts['distribution_release'] }} stable
+            state: present
+            mode: 0644
+
+        - name: Install Docker packages
+          apt:
+            name:
+              - containerd.io
+              - docker-ce
+              - docker-ce-cli
+              - docker-compose-plugin
+
+        - name: Allow ubuntu to invoke docker without sudo
+          user:
+            name: ubuntu
+            groups: docker
+            append: true
+
+    - name: Clone waycarbon-challenge repository
+      git:
+        repo: https://github.com/marceloavilaoliveira/waycarbon-challenge.git
+        dest: "{{ proj_home }}"
+
+    - name: Create .env file
+      copy:
+        src: ../.env
+        dest: "{{ proj_home }}/.env"
+        mode: 0664
+
+    - name: Create and start the containers
+      command:
+        cmd: docker compose up --detach
+        chdir: "{{ proj_home }}"

@@ -1,0 +1,4 @@
+---
+all:
+  hosts:
+    waycarbon-challenge.freeddns.org:

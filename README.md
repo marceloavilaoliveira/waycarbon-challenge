@@ -6,7 +6,7 @@
 - [Operating Instructions](#operating-instructions)
   - [Installing the Tools](#installing-the-tools)
   - [Getting the Repository](#getting-the-repository)
-  - [Configuring the Repository](#configuring-the-repository)
+  - [Configuring the Project](#configuring-the-project)
   - [Building the Images](#building-the-images)
   - [Pushing the Images to Repository](#pushing-the-Images-to-Repository)
   - [Provisioning the Infrastructure](#provisioning-the-infrastructure)
@@ -75,13 +75,12 @@ These are the repository contents:
 `-- README.md          => This file
 ```
 
-### Configuring the Repository ###
+### Configuring the Project ###
 
 The frontend and backend Docker images are pushed to the `waycarbon-challenge-frontend` and `waycarbon-challenge-backend` repositories on Docker Hub. You need to put the Docker Hub info in the `.env` file at the root of the repository:
 
 ```
 DOCKER_HUB_USER=<docker-hub-username>
-DOCKER_HUB_PASS=<docker-hub-password>
 ```
 
 This information will be used to create the necessary repositories, push the generated images, and also pull the required images.
@@ -124,9 +123,23 @@ $ cd terraform
 $ terraform init
 $ terraform apply
 ```
+
+### Deploying the Project ###
+
+To deploy the project in AWS execute the following:
+
+```bash
+$ cd ansible
+$ ansible-playbook deploy.yaml
+```
+
 ## Known issues ##
 
-TBD
+- This project assumes that the provisioned instance can be accessed at "waycarbon-challenge.freeddns.org". The [Dynu](https://www.dynu.com/) site is being used for this.
+
+- The Public SSH key used in the provisioned instance is defined in the file "terraform/main.tf" and should be adjusted as needed before provisioning.
+
+- The application data is stored in the "data" directory. It would be more convenient for them to be stored in an independent volume, making backups easier.
 
 ## Special Notes ##
 
