@@ -137,6 +137,12 @@ To provision the AWS infrastructure execute the following:
 $ bash/provision.sh
 ```
 
+If you create a new server for the project, then it is necessary to update the server's IP on the Dynu website. To update the IP, get the server's IP in AWS and execute the following:
+
+```bash
+$ bash/update-ip.sh -i <server_ip>
+```
+
 ### Deploying the Project ###
 
 To deploy the project in AWS execute the following:
