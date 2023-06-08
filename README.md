@@ -3,13 +3,17 @@
 - [Introduction](#introduction)
 - [The Challenge](#the-challenge)
 - [The Project](#the-project)
+  - [The Structure](#the-structure)
+  - [The Details](#the-details)
+  - [Showcase](#showcase)
 - [Operating Instructions](#operating-instructions)
   - [Installing the Tools](#installing-the-tools)
   - [Getting the Repository](#getting-the-repository)
   - [Configuring the Project](#configuring-the-project)
   - [Building the Images](#building-the-images)
-  - [Pushing the Images to Repository](#pushing-the-Images-to-Repository)
+  - [Pushing the Images to the Repositories](#pushing-the-Images-to-the-Repositories)
   - [Provisioning the Infrastructure](#provisioning-the-infrastructure)
+  - [Deploying the Project](#deploying-the-project)
 - [Known issues](#known-issues)
 - [Special Notes](#special-notes)
 - [Contact Information](#contact-information)
@@ -26,11 +30,23 @@ In summary, the challenge is to provision a cloud environment for a web applicat
 
 ## The Project ##
 
-This project is based on [knaopel/docker-frontend-backend-db](https://github.com/knaopel/docker-frontend-backend-db) repository, and consists of 4 services deployed in Docker containers. There is a web app (frontend) that communicates with an API (backend), which in turn reads/writes data to a database (mongo). These services are accessed through a web server (nginx).
+### The Structure ###
+
+This project consists of 4 services deployed in Docker containers. There is a web app (frontend) that communicates with an API (backend), which in turn reads/writes data to a database (mongo). These services are accessed through a web server (nginx).
 
 The project structure is shown following: 
 
 ![Project Structure](doc/project-structure.png)
+
+### The Details ###
+
+The project started based on the repository [knaopel/docker-frontend-backend-db](https://github.com/knaopel/docker-frontend-backend-db), which has a simple application with a frontend, a backend, and a MongoDB database. In this system, an Nginx web server was added to control the reverse proxy for the frontend and the backend.
+
+The AWS cloud environment, Docker Hub container registry, as well as Ansible, Docker, and Terraform tools were chosen for convenience, but other equivalent environments and tools could have been adopted.
+
+To simulate a domain name, the website [Dynu](https://www.dynu.com/) was used as a dynamic DNS server, allowing the use of the name `waycarbon-challenge.freeddns.org` for the server. To facilitate the creation of new servers and the need for IP updates, an auxiliary script was created (see the section [Provisioning the Infrastructure](#provisioning-the-infrastructure)).
+
+### Showcase ###
 
 The project can be seen in all its glory at:
 
@@ -107,7 +123,7 @@ If you need to build just a specific component, you can specify it using the -c 
 $ bash/build.sh -c frontend|backend
 ```
 
-### Pushing the Images to Repository ###
+### Pushing the Images to the Repositories ###
 
 To push the Docker images to Docker Hub repository for both the frontend and the backend execute the following:
 
