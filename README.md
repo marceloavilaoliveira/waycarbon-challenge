@@ -170,18 +170,21 @@ $ ansible-playbook deploy.yaml
 
 ## Known issues ##
 
-- This project assumes that the provisioned instance can be accessed at `waycarbon-challenge.freeddns.org`. The [Dynu](https://www.dynu.com/) site is being used for this.
+- CDN (TBD).
 
-- The application data is stored in the `data` directory. It would be more convenient for them to be stored in an independent volume, making backups easier.
+- ECS (TBD).
 
 ## Special Notes ##
 
-*TBD*
+- The application data is stored in the `data` directory. It would be more convenient for them to be stored in an independent volume, making backups easier.
+
+- For simplicity, it was chosen to use public repositories on Git Hub and Docker Hub, therefore facilitating the deployment of the project without the need to keep credentials in Ansible Vault.
 
 ## Contact Information ##
 
 Author: **Marcelo Ávila de Oliveira**
 
 - E-mail: [marceloavilaoliveira@gmail.com](marceloavilaoliveira@gmail.com)
-- GitHub: [https://github.com/marceloavilaoliveira](https://github.com/marceloavilaoliveira)
+- LinkedIn: [https://www.linkedin.com/in/marceloavilaoliveira](https://www.linkedin.com/in/marceloavilaoliveira)
 - StackOverflow: [https://stackoverflow.com/users/4653675](https://stackoverflow.com/users/4653675)
+- GitHub: [https://github.com/marceloavilaoliveira](https://github.com/marceloavilaoliveira)
