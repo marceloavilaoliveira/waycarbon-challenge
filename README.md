@@ -42,7 +42,7 @@ The project structure is shown following:
 
 The project started based on the repository [knaopel/docker-frontend-backend-db](https://github.com/knaopel/docker-frontend-backend-db), which has a simple application with a frontend, a backend, and a MongoDB database. In this system, an Nginx web server was added to control the reverse proxy for the frontend and the backend.
 
-The AWS cloud environment, Docker Hub container registry, as well as Ansible, Docker, and Terraform tools were chosen for convenience, but other equivalent environments and tools could have been adopted.
+The [Amazon Elastic Computer Cloud (Amazon EC2)](https://aws.amazon.com/ec2/), and the [Docker Hub container registry](https://hub.docker.com/), as well as the Ansible, Docker, and Terraform tools were chosen for convenience, but other equivalent environments and tools could have been adopted.
 
 To simulate a domain name, the website [Dynu](https://www.dynu.com/) was used as a dynamic DNS server, allowing the use of the name `waycarbon-challenge.freeddns.org` for the server. To facilitate the creation of new servers and the need for IP updates, an auxiliary script was created (see the section [Provisioning the Infrastructure](#provisioning-the-infrastructure)).
 
@@ -59,11 +59,11 @@ The project can be seen in all its glory at:
 
 To use all the commands and scripts listed here, you need to install and configure the following tools:
 
-- [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
-- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-- [Docker](https://docs.docker.com/engine/install)
-- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- [Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+- [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html);
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html);
+- [Docker](https://docs.docker.com/engine/install);
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git);
+- [Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli).
 
 ### Getting the Repository ###
 
@@ -170,9 +170,9 @@ $ ansible-playbook deploy.yaml
 
 ## Known issues ##
 
-- CDN (TBD).
+- The backend needs to be served by an orchestration service (see [issue #1](https://github.com/marceloavilaoliveira/waycarbon-challenge/issues/1));
 
-- ECS (TBD).
+- The frontend needs to be delivered by a Content Delivery Network (CDN) (see [issue #2](https://github.com/marceloavilaoliveira/waycarbon-challenge/issues/2)).
 
 ## Special Notes ##
 
